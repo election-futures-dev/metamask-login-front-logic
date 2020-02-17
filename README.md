@@ -1,11 +1,9 @@
-# Off-The-Shelf Publishable Npm Package Template Written in TS
+# Metamask-login-front-logic
 
-all packaging/publishing must follow https://github.com/syyunn/packaging-convention-js/blob/master/README.md
+Frontend-logics that are intended to be used to implement metamask-login functionality.
 
 ## Publish
-### 1. npm version patch
-
-preversion, version, and postversion will run, create a new tag in git and push it to our remote repository. Now publish again:
-
-### 2. npm publish
+```bash
+npm publish
+```
 
