@@ -35,6 +35,7 @@
     "Web3"
   ],
   "dependencies": {
-    "metamask-login-front-logic": "^1.0.0"
+    "metamask-login-front-logic": "^1.0.0",
+    "web3": "^1.2.6"
   }
 }
