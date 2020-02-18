@@ -1,9 +1,9 @@
 {
-  "name": "metamask-login",
+  "name": "metamask-login-front-logic",
   "version": "1.0.0",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "repository": "https://github.com/syyunn/metamask-login",
+  "repository": "https://github.com/election-futures-dev/metamask-login-front-logic",
   "author": "zachary <syyun@snu.ac.kr>",
   "description": "package-publishing-starter-template",
   "license": "MIT",
@@ -31,7 +31,10 @@
     "lib /**/*"
   ],
   "keywords": [
-    "Hello",
-    "Greeter"
-  ]
+    "Metamask",
+    "Web3"
+  ],
+  "dependencies": {
+    "metamask-login-front-logic": "^1.0.0"
+  }
 }
