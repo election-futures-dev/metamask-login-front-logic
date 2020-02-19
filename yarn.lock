@@ -2237,11 +2237,6 @@ merge-stream@^2.0.0:
   resolved "https://registry.yarnpkg.com/merge-stream/-/merge-stream-2.0.0.tgz#52823629a14dd00c9770fb6ad47dc6310f2c1f60"
   integrity sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==
 
-metamask-login-front-logic@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/metamask-login-front-logic/-/metamask-login-front-logic-1.0.0.tgz#5db742951c11f28cc7ad20950b1199efa229299d"
-  integrity sha512-4LLjQwNa4unGVpGxaHBLGduBVoYILb1yWUh2cVPaptSSjx3nDObu8TedUM00tAOkHApdFD99qngXt3x1gh4V3w==
-
 micromatch@^3.1.4:
   version "3.1.10"
   resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-3.1.10.tgz#70859bc95c9840952f359a068a3fc49f9ecfac23"

@@ -33,8 +33,5 @@
   "keywords": [
     "Metamask",
     "Web3"
-  ],
-  "dependencies": {
-    "metamask-login-front-logic": "^1.0.0"
-  }
+  ]
 }
