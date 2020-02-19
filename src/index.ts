@@ -42,7 +42,7 @@ async function GetSignature(address: string) {
   const nonce = createNonce();
   try {
     const signature = await web3.eth.personal.sign(nonce, address, '');
-    return { nonce, signature }
+    return { nonce, signature };
   } catch (error) {
     window.alert('You need to sign in MetaMask.');
     return;
@@ -50,19 +50,19 @@ async function GetSignature(address: string) {
 }
 
 export async function Authenticate() {
-  let publicAddress: string
-  let nonce: string
-  let signature: string
+  let publicAddress: string;
+  let nonce: string;
+  let signature: string;
 
   CheckMetamaskInstalled().then(installed => {
     if (installed) {
       GetPublicAddress().then(address => {
         if (address) {
-          publicAddress = address
+          publicAddress = address;
           GetSignature(address).then(data => {
             if (data?.signature) {
-              nonce = data.nonce
-              signature = data.signature
+              nonce = data.nonce;
+              signature = data.signature;
               window.alert(publicAddress, nonce, signature);
               const result = {
                 address,
