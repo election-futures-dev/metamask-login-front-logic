@@ -24,11 +24,11 @@ export async function GetPublicAddress() {
 }
 
 export async function Authenticate() {
-  CheckMetamaskInstalled().then(value => {
-    if (value) {
-      GetPublicAddress().then(value => {
-        if (value) {
-          window.alert(value)
+  CheckMetamaskInstalled().then(installed => {
+    if (installed) {
+      GetPublicAddress().then(address => {
+        if (address) {
+          window.alert(address)
         }
       })
     }
