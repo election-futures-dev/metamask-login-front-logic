@@ -1,8 +1,7 @@
 import Web3 from 'web3';
 
-let web3: Web3;
-
 declare const window: any;
+declare const web3: Web3;
 
 export const Greeter = (name: string) => `Hello ${name}`;
 
@@ -16,7 +15,8 @@ export async function GetPublicAddress() {
   if (!web3) {
     try {
       const accounts = await window.ethereum.enable();
-      web3 = new Web3(window.ethereum);
+      console.log(accounts)
+      // web3 = new Web3(window.ethereum);
     } catch (error) {
       window.alert('You need to allow MetaMask.');
       return;
