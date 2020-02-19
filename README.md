@@ -11,6 +11,6 @@ npm publish
 ## Todos
 - [x] CheckMetaMaskInstalled
 - [x] RetrieveUserPublicAddress
-- [ ] CreateNonce
-- [ ] EcryptNonce
+- [x] CreateNonce
+- [x] EncryptNonce (Generate Signature)
 - [ ] PostToLambdaAuthenticator
