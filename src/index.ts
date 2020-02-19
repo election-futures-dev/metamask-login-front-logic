@@ -4,7 +4,7 @@ let web3: Web3;
 
 declare const window: any;
 
-// export const Greeter = (name: string) => `Hello ${name}`;
+export const Greeter = (name: string) => `Hello ${name}`;
 
 export function CheckMetamaskInstalled(): void {
   if (!(window as any).ethereum) {
