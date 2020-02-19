@@ -17,7 +17,7 @@ function createNonce() {
   return result;
 }
 
-async function CheckMetamaskInstalled() {
+async function checkMetamaskInstalled() {
   if (!window.ethereum) {
     window.alert('Please install MetaMask first.');
     return;
@@ -27,7 +27,7 @@ async function CheckMetamaskInstalled() {
   }
 }
 
-async function GetPublicAddress() {
+async function getPublicAddress() {
   try {
     const publicAddressArray: string[] = await window.ethereum.enable();
     const publicAddress = publicAddressArray[0];
@@ -38,7 +38,7 @@ async function GetPublicAddress() {
   }
 }
 
-async function GetSignature(address: string) {
+async function getSignature(address: string) {
   const nonce = createNonce();
   try {
     const signature = await web3.eth.personal.sign(nonce, address, '');
@@ -54,12 +54,12 @@ export async function Authenticate() {
   let nonce: string;
   let signature: string;
 
-  CheckMetamaskInstalled().then(installed => {
+  checkMetamaskInstalled().then(installed => {
     if (installed) {
-      GetPublicAddress().then(address => {
+      getPublicAddress().then(address => {
         if (address) {
           publicAddress = address;
-          GetSignature(address).then(data => {
+          getSignature(address).then(data => {
             if (data?.signature) {
               nonce = data.nonce;
               signature = data.signature;
