@@ -49,8 +49,9 @@ export async function Authenticate() {
     if (installed) {
       GetPublicAddress().then(publicAddress => {
         if (publicAddress) {
-          const signature = GetSignature(publicAddress);
-          window.alert(signature);
+          GetSignature(publicAddress).then(signature => {
+            window.alert(signature);
+          })
         }
       });
     }
