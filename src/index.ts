@@ -9,14 +9,14 @@ export async function CheckMetamaskInstalled() {
   if (!(window as any).ethereum) {
     window.alert('Please install MetaMask first.');
   } else {
-    return true
+    return true;
   }
 }
 
 export async function GetPublicAddress() {
   try {
     const accounts = await window.ethereum.enable();
-    return accounts
+    return accounts;
   } catch (error) {
     window.alert('You need to allow MetaMask.');
     return false;
@@ -28,9 +28,9 @@ export async function Authenticate() {
     if (installed) {
       GetPublicAddress().then(address => {
         if (address) {
-          window.alert(address)
+          window.alert(address);
         }
-      })
+      });
     }
-  })
+  });
 }
