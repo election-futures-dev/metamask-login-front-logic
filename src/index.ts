@@ -7,11 +7,11 @@ export const Greeter = (name: string) => `Hello ${name}`;
 
 function createNonce() {
 
-  var dict = "abcdefghijklmnopqrstuvwxyz0123456789".split("");
-  var result = "";
+  let dict = "abcdefghijklmnopqrstuvwxyz0123456789".split("");
+  let result = "";
 
-  for (var i = 0; i < 10; i++) {
-    var rand = Math.floor(Math.random() * 36);
+  for (let i = 0; i < 10; i++) {
+    let rand = Math.floor(Math.random() * 36);
     result += dict[rand];
   }
 
@@ -41,7 +41,7 @@ async function GetPublicAddress() {
 }
 
 async function GetSignature(publicAddress: string) {
-  var nonce = createNonce()
+  let nonce = createNonce()
   let signature = web3.eth.personal.sign(nonce, publicAddress, '')
   return signature
 }
