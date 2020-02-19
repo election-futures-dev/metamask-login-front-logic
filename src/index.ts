@@ -53,12 +53,12 @@ export async function Authenticate() {
     if (installed) {
       GetPublicAddress().then(address => {
         if (address) {
-          GetSignature(publicAddress).then(signature => {
-            window.alert(publicAddress, nonce, signature);
+          GetSignature(publicAddress).then(sign => {
+            window.alert(address, nonce, sign);
             const result = {
-              publicAddress: publicAddress,
-              nonce: nonce,
-              signature: signature
+              address,
+              nonce,
+              sign
             }
             return result
           });
