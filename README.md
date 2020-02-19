@@ -1,6 +1,6 @@
 # Metamask-login-front-logic
 
-Frontend-logics that are intended to be used to implement metamask-login functionality.
+Frontend-logics that implements functionalities required in metamask-auth-flow.
 
 ## Publish
 ```bash
