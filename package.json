@@ -30,5 +30,8 @@
   "keywords": [
     "Metamask",
     "Web3"
-  ]
+  ],
+  "dependencies": {
+    "web3": "^1.2.6"
+  }
 }
