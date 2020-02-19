@@ -27,9 +27,6 @@
     "preversion": "yarn run lint",
     "postversion": "git push && git push --tags"
   },
-  "files": [
-    "lib /**/*"
-  ],
   "keywords": [
     "Metamask",
     "Web3"
