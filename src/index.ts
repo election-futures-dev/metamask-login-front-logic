@@ -51,7 +51,7 @@ export async function Authenticate() {
         if (publicAddress) {
           GetSignature(publicAddress).then(signature => {
             window.alert(signature);
-          })
+          });
         }
       });
     }
