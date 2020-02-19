@@ -1,6 +1,6 @@
 import Web3 from 'web3';
 
-let web3: Web3 | undefined = undefined;
+let web3: Web3
 
 declare const window: any;
 
