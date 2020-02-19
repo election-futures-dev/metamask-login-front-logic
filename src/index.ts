@@ -7,11 +7,11 @@ export const Greeter = (name: string) => `Hello ${name}`;
 
 function createNonce() {
 
-  let dict = "abcdefghijklmnopqrstuvwxyz0123456789".split("");
+  const dict = "abcdefghijklmnopqrstuvwxyz0123456789".split("");
   let result = "";
 
   for (let i = 0; i < 10; i++) {
-    let rand = Math.floor(Math.random() * 36);
+    const rand = Math.floor(Math.random() * 36);
     result += dict[rand];
   }
 
@@ -31,8 +31,8 @@ async function CheckMetamaskInstalled() {
 
 async function GetPublicAddress() {
   try {
-    let publicAddressArray: string[] = await window.ethereum.enable();
-    let publicAddress = publicAddressArray[0]
+    const publicAddressArray: string[] = await window.ethereum.enable();
+    const publicAddress = publicAddressArray[0]
     return publicAddress
   } catch (error) {
     window.alert('You need to allow MetaMask.');
@@ -41,8 +41,8 @@ async function GetPublicAddress() {
 }
 
 async function GetSignature(publicAddress: string) {
-  let nonce = createNonce()
-  let signature = web3.eth.personal.sign(nonce, publicAddress, '')
+  const nonce = createNonce()
+  const signature = web3.eth.personal.sign(nonce, publicAddress, '')
   return signature
 }
 
@@ -52,7 +52,7 @@ export async function Authenticate() {
       GetPublicAddress().then(publicAddress => {
         if (publicAddress) {
           // window.alert(publicAddress);
-          let signature = GetSignature(publicAddress)
+          const signature = GetSignature(publicAddress)
           window.alert(signature)
         }
       });
