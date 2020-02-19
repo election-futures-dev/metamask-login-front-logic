@@ -4,6 +4,7 @@ Frontend-logics that are intended to be used to implement metamask-login functio
 
 ## Publish
 ```bash
+npm version patch
 npm publish
 ```
 
