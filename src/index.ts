@@ -2,6 +2,10 @@ import Web3 from 'web3';
 
 declare let window: any;
 declare let web3: Web3;
+declare let publicAddress: string;
+declare let nonce: string;
+declare let signature: string;
+
 
 export const Greeter = (name: string) => `Hello ${name}`;
 
@@ -30,7 +34,7 @@ async function CheckMetamaskInstalled() {
 async function GetPublicAddress() {
   try {
     const publicAddressArray: string[] = await window.ethereum.enable();
-    const publicAddress = publicAddressArray[0];
+    publicAddress = publicAddressArray[0];
     return publicAddress;
   } catch (error) {
     window.alert('You need to allow MetaMask.');
@@ -39,18 +43,24 @@ async function GetPublicAddress() {
 }
 
 async function GetSignature(publicAddress: string) {
-  const nonce = createNonce();
-  const signature = await web3.eth.personal.sign(nonce, publicAddress, '');
+  nonce = createNonce();
+  signature = await web3.eth.personal.sign(nonce, publicAddress, '');
   return signature;
 }
 
 export async function Authenticate() {
   CheckMetamaskInstalled().then(installed => {
     if (installed) {
-      GetPublicAddress().then(publicAddress => {
-        if (publicAddress) {
+      GetPublicAddress().then(address => {
+        if (address) {
           GetSignature(publicAddress).then(signature => {
-            window.alert(signature);
+            window.alert(publicAddress, nonce, signature);
+            const result = {
+              publicAddress: publicAddress,
+              nonce: nonce,
+              signature: signature
+            }
+            return result
           });
         }
       });
