@@ -8,3 +8,9 @@ npm version patch
 npm publish
 ```
 
+## Todos
+- [x] CheckMetaMaskInstalled
+- [x] RetrieveUserPublicAddress
+- [ ] CreateNonce
+- [ ] EcryptNonce
+- [ ] PostToLambdaAuthenticator
