@@ -40,7 +40,7 @@ async function GetPublicAddress() {
 
 async function GetSignature(publicAddress: string) {
   const nonce = createNonce();
-  const signature = web3.eth.personal.sign(nonce, publicAddress, '');
+  const signature = await web3.eth.personal.sign(nonce, publicAddress, '');
   return signature;
 }
 
@@ -49,7 +49,6 @@ export async function Authenticate() {
     if (installed) {
       GetPublicAddress().then(publicAddress => {
         if (publicAddress) {
-          // window.alert(publicAddress);
           const signature = GetSignature(publicAddress);
           window.alert(signature);
         }
