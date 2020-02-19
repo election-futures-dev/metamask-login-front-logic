@@ -35,17 +35,22 @@ async function GetPublicAddress() {
   try {
     const publicAddressArray: string[] = await window.ethereum.enable();
     publicAddress = publicAddressArray[0];
-    return publicAddress;
+    return true;
   } catch (error) {
     window.alert('You need to allow MetaMask.');
     return;
   }
 }
 
-async function GetSignature(publicAddress: string) {
+async function GetSignature(address: string) {
   nonce = createNonce();
-  signature = await web3.eth.personal.sign(nonce, publicAddress, '');
-  return signature;
+  try {
+    signature = await web3.eth.personal.sign(nonce, address, '')
+    return true
+  } catch (error) {
+    window.alert('You need to sign in MetaMask.');
+    return;
+  }
 }
 
 export async function Authenticate() {
@@ -53,14 +58,16 @@ export async function Authenticate() {
     if (installed) {
       GetPublicAddress().then(address => {
         if (address) {
-          GetSignature(publicAddress).then(sign => {
-            window.alert(address, nonce, sign);
-            const result = {
-              address,
-              nonce,
-              sign
+          GetSignature(publicAddress).then(signed => {
+            if (signed) {
+              window.alert(publicAddress, nonce, signature);
+              const result = {
+                address,
+                nonce,
+                signature
+              }
+              return result
             }
-            return result
           });
         }
       });
