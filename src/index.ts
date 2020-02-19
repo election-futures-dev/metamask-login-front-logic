@@ -15,11 +15,13 @@ export async function GetPublicAddress() {
   if (!web3) {
     try {
       const accounts = await window.ethereum.enable();
-      console.log(accounts)
+      window.alert(`${JSON.stringify(accounts)}`);
       // web3 = new Web3(window.ethereum);
     } catch (error) {
       window.alert('You need to allow MetaMask.');
       return;
     }
+  } else {
+    window.alert('!web == false');
   }
 }
