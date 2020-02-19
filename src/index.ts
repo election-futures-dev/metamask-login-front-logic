@@ -6,7 +6,6 @@ declare let publicAddress: string;
 declare let nonce: string;
 declare let signature: string;
 
-
 export const Greeter = (name: string) => `Hello ${name}`;
 
 function createNonce() {
@@ -45,8 +44,8 @@ async function GetPublicAddress() {
 async function GetSignature(address: string) {
   nonce = createNonce();
   try {
-    signature = await web3.eth.personal.sign(nonce, address, '')
-    return true
+    signature = await web3.eth.personal.sign(nonce, address, '');
+    return true;
   } catch (error) {
     window.alert('You need to sign in MetaMask.');
     return;
@@ -64,9 +63,9 @@ export async function Authenticate() {
               const result = {
                 address,
                 nonce,
-                signature
-              }
-              return result
+                signature,
+              };
+              return result;
             }
           });
         }

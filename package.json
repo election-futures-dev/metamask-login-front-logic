@@ -1,6 +1,6 @@
 {
   "name": "metamask-login-front-logic",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "repository": "https://github.com/election-futures-dev/metamask-login-front-logic",
