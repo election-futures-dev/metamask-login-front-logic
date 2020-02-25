@@ -86,7 +86,9 @@ export async function Authenticate() {
                 nonce,
                 signature,
               };
-              return result;
+              getToken(result).then(response => {
+                return response
+              })
             }
           });
         }
