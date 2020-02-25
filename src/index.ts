@@ -50,22 +50,19 @@ async function getSignature(address: string) {
 }
 
 export async function Authenticate() {
-  let publicAddress: string;
   let nonce: string;
   let signature: string;
 
   checkMetamaskInstalled().then(installed => {
     if (installed) {
-      getPublicAddress().then(address => {
-        if (address) {
-          publicAddress = address;
-          getSignature(address).then(data => {
+      getPublicAddress().then(publicAddress => {
+        if (publicAddress) {
+          getSignature(publicAddress).then(data => {
             if (data?.signature) {
               nonce = data.nonce;
               signature = data.signature;
-              window.alert(publicAddress, nonce, signature);
               const result = {
-                address,
+                publicAddress,
                 nonce,
                 signature,
               };
