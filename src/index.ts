@@ -6,7 +6,7 @@ declare let web3: Web3;
 
 export const Greeter = (name: string) => `Hello ${name}`;
 
-let authUrlEndpoint = "https://9sskfavyih.execute-api.ap-northeast-2.amazonaws.com/dev/auth"
+const authUrlEndpoint = "https://9sskfavyih.execute-api.ap-northeast-2.amazonaws.com/dev/auth"
 
 function createNonce() {
   const dict = 'abcdefghijklmnopqrstuvwxyz0123456789'.split('');
