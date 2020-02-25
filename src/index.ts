@@ -86,6 +86,7 @@ export async function Authenticate() {
                 signature,
               };
               getToken(result).then(response => {
+                window.alert(response);
                 return response;
               });
             }
