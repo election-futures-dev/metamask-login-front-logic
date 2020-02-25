@@ -1,9 +1,12 @@
 import Web3 from 'web3';
+import axios from 'axios'
 
 declare let window: any;
 declare let web3: Web3;
 
 export const Greeter = (name: string) => `Hello ${name}`;
+
+let authUrlEndpoint = "https://9sskfavyih.execute-api.ap-northeast-2.amazonaws.com/dev/auth"
 
 function createNonce() {
   const dict = 'abcdefghijklmnopqrstuvwxyz0123456789'.split('');
@@ -46,6 +49,23 @@ async function getSignature(address: string) {
   } catch (error) {
     window.alert('You need to sign in MetaMask.');
     return;
+  }
+}
+
+type AuthData = {
+  publicAddress: string,
+  nonce: string,
+  signature: string
+}
+
+async function getToken(result: AuthData) {
+  const response = await axios.post(authUrlEndpoint, result)
+  if (response.data.token) {
+    return response.data.token
+  }
+  else {
+    window.alert('Authenticate Failed.')
+    return response
   }
 }
 
