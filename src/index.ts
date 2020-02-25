@@ -1,9 +1,12 @@
 import Web3 from 'web3';
+import axios from 'axios'
 
 declare let window: any;
 declare let web3: Web3;
 
 export const Greeter = (name: string) => `Hello ${name}`;
+
+let authUrlEndpoint = "https://9sskfavyih.execute-api.ap-northeast-2.amazonaws.com/dev/auth"
 
 function createNonce() {
   const dict = 'abcdefghijklmnopqrstuvwxyz0123456789'.split('');
@@ -49,27 +52,43 @@ async function getSignature(address: string) {
   }
 }
 
+type AuthData = {
+  publicAddress: string,
+  nonce: string,
+  signature: string
+}
+
+async function getToken(result: AuthData) {
+  const response = await axios.post(authUrlEndpoint, result)
+  if (response.data.token) {
+    return response.data.token
+  }
+  else {
+    window.alert('Authenticate Failed.')
+    return response
+  }
+}
+
 export async function Authenticate() {
-  let publicAddress: string;
   let nonce: string;
   let signature: string;
 
   checkMetamaskInstalled().then(installed => {
     if (installed) {
-      getPublicAddress().then(address => {
-        if (address) {
-          publicAddress = address;
-          getSignature(address).then(data => {
+      getPublicAddress().then(publicAddress => {
+        if (publicAddress) {
+          getSignature(publicAddress).then(data => {
             if (data?.signature) {
               nonce = data.nonce;
               signature = data.signature;
-              window.alert(publicAddress, nonce, signature);
               const result = {
-                address,
+                publicAddress,
                 nonce,
                 signature,
               };
-              return result;
+              getToken(result).then(response => {
+                return response
+              })
             }
           });
         }
