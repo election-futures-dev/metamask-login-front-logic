@@ -13,4 +13,5 @@ npm publish
 - [x] RetrieveUserPublicAddress
 - [x] CreateNonce
 - [x] EncryptNonce (Generate Signature)
-- [ ] PostToLambdaAuthenticator
+- [x] Post to Lambda Autheticator and Get Response
+  - [ ] Handle not-authenticated case
